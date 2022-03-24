@@ -8,18 +8,18 @@
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+My program runs a simulation of a dart board in three parts. The first part, Part A, randomly simulates darts being thrown a dartborard, showing up 'blue' when it hits the board and 'orange' if it misses. Part B runs a game between 2 players, then indicates whihc player has one the game based off who hit teh dart board more times. Part C asks for 'the number of darts to be thrown in the simulation', which then runs that number of darts thrown at the board. Using the equation given in the code, an approximation of pi is given using the amount of darts input.  
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: < 1 >
 
-Grace days remaining: < # >/5
+Grace days remaining: < 3 >/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+none
 
 ## REFERENCES:
- < List any outside resources used >
+the hyperlinks given in the description
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+have a good one 
