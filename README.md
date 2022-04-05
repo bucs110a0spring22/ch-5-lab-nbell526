@@ -8,18 +8,18 @@
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
-My program runs a simulation of a dart board in three parts. The first part, Part A, randomly simulates darts being thrown a dartborard, showing up 'blue' when it hits the board and 'orange' if it misses. Part B runs a game between 2 players, then indicates whihc player has one the game based off who hit teh dart board more times. Part C asks for 'the number of darts to be thrown in the simulation', which then runs that number of darts thrown at the board. Using the equation given in the code, an approximation of pi is given using the amount of darts input.  
+i cleaned up some spacing errors and inconsistencies. such as unnecessary lines used. changed colors for clearer messages.
+i added a function where it congratulates the winner with a big exploding firework 
+i added a feature that gives a message that says winner winner chicken dinner. on top of the exploding firework 
 
-## GRACE DAYS
-Grace days used for this assignment: < 1 >
-
-Grace days remaining: < 3 >/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
 none
 
 ## REFERENCES:
-the hyperlinks given in the description
+python website for colors. 
+first code academy on youtube
 
 ## MISCELLANEOUS COMMENTS:
 have a good one 
+added a color that incorperated my corn, buttered btw

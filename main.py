@@ -37,30 +37,30 @@ def drawSquare(myturtle=None,width=0,top_left_x=0,top_left_y=0):
   myturtle.pd()
   for i in range(4):
     myturtle.forward(width)
-    myturtle.right(90)
+    myturtle.right(90)  
 
 def drawLine(myturtle=None,x_start=0,y_start=0,x_end=0,y_end=0):
   myturtle.pu()
   myturtle.goto(x_start,y_start)
   myturtle.pd()
   myturtle.goto(x_end,y_end)
-  
+
 def drawCircle(myturtle=None,radius=0):
   myturtle.pu()
   myturtle.goto(0,-1)
   myturtle.pd()
   myturtle.circle(radius)
-  
+
 def setUpDartboard(myscreen=None,myturtle=None):
   myscreen.setworldcoordinates(-1,-1,1,1)
   drawSquare(myturtle,2,-1,1)
   drawLine(myturtle,0,-1,0,1)
   drawLine(myturtle,-1,0,1,0)
   drawCircle(myturtle,1)
-  
+
 def isInCircle(myturtle=None, circle_center_x=0, circle_center_y=0, radius=0):
   return myturtle.distance(0,0)<=1
-  
+
 def throwDart(myturtle=None):
   x_value = random.uniform(-1,1)
   y_value = random.uniform(-1,1)
@@ -72,10 +72,9 @@ def throwDart(myturtle=None):
     myturtle.dot('orange')
 
 #Part B
-
+    
 def playDarts(myturtle=None):
-  player_one = 0
-  player_two = 0
+  player_one, player_two = 0, 0
   for i in range(10):
     throwDart(myturtle)
     if isInCircle(myturtle,0,0,1):
@@ -91,15 +90,35 @@ def playDarts(myturtle=None):
   else:
     print('TIE game!')
 
-#Part C
+#New Feature Function
+    
+def fireworks(myscreen=None, myturtle=None):
+  myscreen.bgcolor('cornflowerblue')
+  num_of_lines = 10
+  for i in range(num_of_lines):
+    myturtle.color('orange')
+    myturtle.goto(0,0)
+    myturtle.pendown()
+    myturtle.forward(0.5)
+    myturtle.backward(1)
+    myturtle.left(180/num_of_lines)
+    myturtle.pu()
+    myturtle.goto(0,.75)
+    myturtle.color('gold')
+    myturtle.write("Winner Winner Chicken Dinner!!", align = 'center')
+  myscreen.bgcolor('white')
+  myturtle.color('black')
+  myturtle.left(180) 
 
-def montePi(myturtle=None, num_darts=0):
-  inside_count = 0
-  for i in range(num_darts):
+#Part C
+  
+def montePi(myturtle=None, num_darts_thrown=0):
+  inside_dartboard_count = 0
+  for i in range(num_darts_thrown):
     throwDart(myturtle)
     if isInCircle(myturtle,0,0,1):
-      inside_count += 1
-  value_of_pi = 4*(inside_count/num_darts)
+      inside_dartboard_count += 1
+  value_of_pi = 4 * (inside_dartboard_count / num_darts_thrown)
   return value_of_pi
 
 #########################################################
@@ -119,32 +138,33 @@ def main():
     window = turtle.Screen()
     darty = turtle.Turtle()
     darty.speed(0) # as fast as it will go!
-    setUpDartboard(myscreen=window, myturtle=darty)
-
+    setUpDartboard(window, darty)
+    
     # Loop for 10 darts to test your code
     for i in range(10):
         throwDart(darty)
-        if isInCircle(myturtle=darty, radius=1):
-          print("You hit the dartboard!")
+
     print("\tPart A Complete...")
     print("=========== Part B ===========")
     darty.clear()
-    setUpDartboard(myscreen=window, myturtle=darty)
-    playDarts(myturtle=darty)
+    setUpDartboard(window, darty)
+    playDarts(darty)
+    darty.clear()
+    fireworks(window, darty)
     print("\tPart B Complete...")
     # Keep the window up until dismissed
     print("=========== Part C ===========")
     darty.clear()
-    setUpDartboard(myscreen=window, myturtle=darty)
+    setUpDartboard(window, darty)
     
     # Includes the following code in order to update animation periodically
     # instead of for each throw (saves LOTS of time):
-    BATCH_OF_DARTS = 5000
-    window.tracer(BATCH_OF_DARTS)
+    batch_Of_Darts = 5000
+    window.tracer(batch_Of_Darts)
 
     # Conduct simulation and print result
     number_darts = int(input("\nPlease input the number of darts to be thrown in the simulation:  "))
-    approx_pi = montePi(myturtle=darty, num_darts=number_darts)
+    approx_pi = montePi(darty, number_darts)
     print("\nThe estimation of pi using "+str(number_darts)+" virtual darts is " + str(approx_pi))
     print("\tPart C Complete...")
     # Don't hide or mess with window while it's 'working'
